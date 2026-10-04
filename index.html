@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="SSC Signature Resizer - crop, resize, compress and verify SSC signature JPG/JPEG requirements for CGL, GD, MTS, CHSL, CPO, Stenographer and other SSC applications.">
+<meta name="robots" content="index,follow">
+<meta name="author" content="Power Makers">
+<meta name="theme-color" content="#07101f">
+<meta name="keywords" content="SSC signature resizer, SSC signature compressor, SSC signature resize, SSC signature resize online, SSC signature size, SSC signature dimensions, SSC signature 10 KB, SSC signature 20 KB, SSC CGL signature, SSC GD signature, SSC MTS signature, SSC CHSL signature, SSC CPO signature, SSC Stenographer signature, SSC signature JPG, SSC signature JPEG, resize signature for SSC form, compress signature for SSC application">
+<meta property="og:title" content="SSC Signature Resizer & Compressor | Power Makers">
+<meta property="og:description" content="Free browser-based SSC signature cropper, resizer, compressor and file-size checker for SSC applications.">
+<meta property="og:type" content="website">
+<title>SSC Signature Resizer & Compressor | SSC CGL, GD, MTS, CHSL, CPO</title>
+<style>
+:root{--bg:#07101f;--card:#111c2e;--card2:#0c1627;--text:#f8fafc;--muted:#a7b4c7;--line:#263750;--blue:#3b82f6;--blue2:#2563eb;--green:#10b981;--red:#ef4444;--yellow:#f59e0b;--shadow:0 18px 50px rgba(0,0,0,.28)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#07101f,#0a1220 45%,#07101f);color:var(--text);font:15px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}a{color:#72a7ff}.wrap{width:min(980px,calc(100% - 24px));margin:auto}
+.topbar{padding:14px 0;border-bottom:1px solid var(--line);background:#07101feF;position:sticky;top:0;z-index:20;backdrop-filter:blur(10px)}.nav{display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{font-weight:800;letter-spacing:.2px}.brand span{color:#72a7ff}.nav a{text-decoration:none;font-size:13px;margin-left:12px}
+.hero{text-align:center;padding:35px 0 20px}h1{font-size:clamp(1.65rem,5vw,2.45rem);line-height:1.15;margin:0 0 10px}.lead{max-width:760px;margin:auto;color:var(--muted)}.notice{margin:18px auto 0;max-width:800px;padding:11px 14px;border:1px solid #7c5b13;background:#211a0c;border-radius:10px;color:#f8d47a;font-size:13px}
+.card{background:linear-gradient(180deg,var(--card),#0e192b);border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:var(--shadow);margin:18px 0}.step{font-weight:800;font-size:16px;margin:4px 0 12px}
+.presets{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:9px}button,input,select{font:inherit}button{cursor:pointer}.preset{background:#0a1424;border:1px solid var(--line);color:var(--muted);border-radius:9px;padding:10px}.preset.active{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:700}.preset small{display:block;opacity:.85;font-weight:500}
+.drop{border:2px dashed #3a4c68;border-radius:14px;padding:28px 18px;text-align:center;background:#091426;transition:.2s}.drop.drag{border-color:var(--blue);background:#0b1a32}.drop-title{font-weight:800}.drop-sub{font-size:12px;color:var(--muted);margin-top:5px}.drop input{display:none}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.tool{width:auto;padding:8px 11px;background:#0a1424;border:1px solid var(--line);border-radius:8px;color:var(--text)}.tool:hover{border-color:#5273a4}.editor{display:none;margin-top:16px}
+.crop-area{position:relative;height:min(430px,55vh);min-height:260px;background:#000;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;touch-action:none}.crop-canvas{display:block;max-width:calc(100% - 20px);max-height:calc(100% - 20px);width:auto;height:auto;flex:none}.crop-box{position:absolute;border:2px solid #fff;box-shadow:0 0 0 9999px rgba(0,0,0,.42);touch-action:none;cursor:grab}.crop-box:active{cursor:grabbing}.crop-box:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent 49.7%,rgba(255,255,255,.45) 50%,transparent 50.3%),linear-gradient(0deg,transparent 49.7%,rgba(255,255,255,.45) 50%,transparent 50.3%);pointer-events:none}.crop-hint{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,.65);padding:4px 9px;border-radius:6px;font-size:11px;color:#fff;pointer-events:none;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}label{display:block;color:var(--muted);font-size:12px;font-weight:700;margin-bottom:5px}input,select{width:100%;background:#091426;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:9px 10px;outline:none}input:focus,select:focus{border-color:var(--blue);box-shadow:0 0 0 3px #3b82f622}.help{font-size:11px;color:var(--muted);margin-top:4px}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:13px}.btn{border:0;border-radius:9px;padding:11px 14px;font-weight:800;color:#fff;background:var(--blue);text-align:center;text-decoration:none;display:inline-block}.btn:hover{background:var(--blue2)}.btn.green{background:var(--green)}.btn.gray{background:#26354c}.btn.red{background:#9f2e2e}
+.result{display:none;margin-top:16px;border-top:1px solid var(--line);padding-top:16px}.result-grid{display:grid;grid-template-columns:180px 1fr;gap:18px;align-items:center}.preview{width:180px;height:100px;object-fit:contain;background:#fff;border-radius:8px;padding:4px;border:1px solid var(--line)}.status{padding:11px;border-radius:9px;background:#091426;border:1px solid var(--line);margin-bottom:9px}.ok{color:#6ee7b7}.bad{color:#fca5a5}.checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:7px;margin-top:12px}.check{padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:#0a1424;font-size:12px}.check.ok{border-color:#176b52;background:#08261e}.check.bad{border-color:#74333a;background:#260d12}
+.content h2{font-size:1.35rem;margin:28px 0 9px}.content h3{font-size:1.05rem;margin:22px 0 6px}.content p,.content li{color:var(--muted);font-size:14px}.content ul{padding-left:20px}.rule-table{width:100%;border-collapse:collapse;margin:10px 0;border-radius:10px;overflow:hidden}.rule-table th,.rule-table td{border:1px solid var(--line);padding:9px;text-align:left;font-size:13px;vertical-align:top}.rule-table th{background:#0a1424}.faq{border:1px solid var(--line);border-radius:9px;margin:8px 0;background:#0a1424}.faq summary{padding:11px;font-weight:750;cursor:pointer}.faq div{padding:0 11px 11px;color:var(--muted);font-size:13px}.footer{border-top:1px solid var(--line);margin-top:30px;padding:25px 0;color:var(--muted);font-size:12px}.legal-nav{display:flex;flex-wrap:wrap;gap:12px;margin:8px 0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#111c2e;border:1px solid var(--line);padding:10px 14px;border-radius:9px;display:none;z-index:99;box-shadow:var(--shadow)}
+@media(max-width:620px){.grid,.grid3,.actions,.result-grid,.checklist{grid-template-columns:1fr}.result-grid{justify-items:center}.result-grid>div{width:100%}.nav div:last-child{display:none}.card{padding:15px}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Power Makers SSC Signature Resizer","applicationCategory":"PhotoEditingApplication","operatingSystem":"Any","description":"Browser-based SSC signature cropper, resizer, compressor and file-size checker for SSC applications.","author":{"@type":"Organization","name":"Power Makers"}},{"@type":"WebSite","name":"Power Makers SSC Signature Resizer","description":"SSC signature resizing and compression tool with requirements and FAQs."}]}</script></head>
+<body>
+<header class="topbar"><div class="wrap nav"><div class="brand">Power <span>Makers</span></div><nav aria-label="Main navigation"><a href="#tool">Tool</a><a href="#requirements">Requirements</a><a href="#faq">FAQ</a><a href="#privacy">Privacy</a><a href="https://github.com/POWER-MAKERS/SSC-SIGNATURE-RESIZER-FOR-SSC-MTS-GD-CGL-CHSL-CPO-AND-MANY-MORE.git" target="_blank" rel="noopener noreferrer">GitHub</a></nav></div></header>
+
+<main class="wrap">
+<section class="hero">
+<h1>SSC Signature Resizer & Compressor</h1>
+<p class="lead">Crop, resize and prepare a clean JPG/JPEG signature for SSC applications. The tool checks the <strong>actual generated JPEG file size in bytes</strong>.</p>
+<div class="notice"><strong>Important:</strong> SSC requirements are notice-specific and can change. Always compare your final file with the active SSC notification/application portal before submission. This independent tool is not affiliated with SSC.</div>
+</section>
+
+<section class="card" id="tool">
+<h2 class="sr-only">SSC signature preparation tool</h2>
+<div class="step">1. Choose an SSC requirement preset</div>
+<div class="presets" id="presets">
+<button class="preset active" data-name="SSC CGL 2026" data-wcm="4" data-hcm="2" data-min="10" data-max="20" data-dpi="300">SSC CGL 2026<small>4 × 2 cm • 10–20 KB</small></button>
+<button class="preset" data-name="SSC GD 2026" data-wcm="6" data-hcm="2" data-min="10" data-max="20" data-dpi="300">SSC GD 2026<small>6 × 2 cm • 10–20 KB</small></button>
+<button class="preset" data-name="SSC MTS 2025" data-wcm="6" data-hcm="2" data-min="10" data-max="20" data-dpi="300">SSC MTS<small>6 × 2 cm • 10–20 KB</small></button>
+<button class="preset" data-name="SSC CHSL 2025" data-wcm="4" data-hcm="2" data-min="10" data-max="20" data-dpi="300">SSC CHSL<small>4 × 2 cm • 10–20 KB</small></button>
+<button class="preset" data-name="SSC CPO 2025" data-wcm="6" data-hcm="2" data-min="10" data-max="20" data-dpi="300">SSC CPO<small>6 × 2 cm • 10–20 KB</small></button>
+<button class="preset" data-name="SSC Stenographer 2025" data-wcm="6" data-hcm="2" data-min="10" data-max="20" data-dpi="300">SSC Stenographer<small>6 × 2 cm • 10–20 KB</small></button>
+<button class="preset" data-name="Custom / Other SSC" data-wcm="" data-hcm="" data-min="10" data-max="20" data-dpi="300">Custom / Other SSC<small>Enter active notice values</small></button>
+</div>
+<p class="help" id="presetNote">Selected: SSC CGL 2026. Use the current notification as the final authority.</p>
+
+<div class="step" style="margin-top:20px">2. Upload your signature</div>
+<div class="drop" id="dropZone">
+<input id="imageInput" type="file" accept="image/jpeg,image/png,image/webp">
+<div class="drop-title">Tap this box or the button to choose a signature image</div>
+<div class="drop-sub">JPG/JPEG, PNG or WebP source • final output is always JPEG</div>
+<button type="button" class="btn" style="width:auto;margin-top:12px" id="chooseBtn">Choose image</button>
+</div>
+
+<div class="editor" id="editor">
+<div class="step">3. Crop and adjust</div>
+<div class="crop-area" id="cropArea"><canvas id="cropCanvas" class="crop-canvas"></canvas><div id="cropBox" class="crop-box" aria-label="Crop area"></div></div>
+<div class="toolbar">
+<button class="tool" id="zoomIn" type="button">＋ Zoom</button><button class="tool" id="zoomOut" type="button">－ Zoom</button>
+<button class="tool" id="rotateLeft" type="button">↶ Rotate</button><button class="tool" id="rotateRight" type="button">↷ Rotate</button>
+<button class="tool" id="flipH" type="button">↔ Flip</button><button class="tool" id="flipV" type="button">↕ Flip</button><button class="tool" id="resetCrop" type="button">Reset crop</button>
+</div>
+
+<div class="step">4. Output settings</div>
+<div class="grid3">
+<div><label for="width">Width (px)</label><input id="width" type="number" min="40" max="2000" step="1"><div class="help" id="widthCm"></div></div>
+<div><label for="height">Height (px)</label><input id="height" type="number" min="20" max="1000" step="1"><div class="help" id="heightCm"></div></div>
+<div><label for="dpi">Resolution metadata</label><input id="dpi" type="number" min="72" max="1200" step="1" value="300"><div class="help">JPEG JFIF density metadata</div></div>
+</div>
+<div class="grid" style="margin-top:10px">
+<div><label for="minKB">Minimum file size (KB)</label><input id="minKB" type="number" min="1" max="500" step="1" value="10"></div>
+<div><label for="maxKB">Maximum file size (KB)</label><input id="maxKB" type="number" min="1" max="500" step="1" value="20"></div>
+</div>
+<div class="grid" style="margin-top:10px">
+<div><label for="targetMode">Target strategy</label><select id="targetMode"><option value="quality">Best visual quality inside range</option><option value="middle">Aim near middle of range</option></select></div>
+<div><label for="paddingAllowed">Minimum-size protection</label><select id="paddingAllowed"><option value="yes">Enabled — JPEG comment padding if needed</option><option value="no">Disabled — report if naturally too small</option></select></div>
+</div>
+<div class="actions"><button class="btn" id="generate" type="button">⚙ Generate & verify JPEG</button><button class="btn gray" id="clear" type="button">Clear / choose another image</button></div>
+<p class="help">The generated Blob is measured directly. Optional JPEG comment padding is used only to reach a minimum byte range when enabled; it does not change the visible pixels.</p>
+
+<section class="result" id="result" aria-live="polite">
+<div class="step">5. Verified output</div>
+<div class="result-grid"><img class="preview" id="preview" alt="Compressed signature preview"><div>
+<div class="status" id="status"></div><div id="meta"></div><div class="checklist" id="checklist"></div>
+<div class="actions"><a class="btn green" id="download" download="ssc-signature.jpg">⬇ Download verified JPG</a><button class="btn gray" id="copyDetails" type="button">Copy verification details</button></div>
+</div></div>
+</section>
+</div>
+</section>
+
+<section class="card content" id="requirements">
+<h2>SSC Signature Requirements</h2>
+<p>The table below contains requirements verified against SSC notices available for the listed examinations. SSC can change requirements by examination and year, so the active notice always wins.</p>
+<table class="rule-table"><thead><tr><th>Examination</th><th>Signature format</th><th>File size</th><th>Approx. dimensions</th><th>Notice status</th></tr></thead>
+<tbody>
+<tr><td>SSC CGL 2026</td><td>JPEG/JPG</td><td>10–20 KB</td><td>4.0 × 2.0 cm</td><td>Verified from 2026 notice</td></tr>
+<tr><td>SSC GD 2026</td><td>JPEG</td><td>10–20 KB</td><td>6.0 × 2.0 cm</td><td>Verified from 2026 notice</td></tr>
+<tr><td>SSC MTS 2025</td><td>JPEG</td><td>10–20 KB</td><td>6.0 × 2.0 cm</td><td>Verified from 2025 notice</td></tr>
+<tr><td>SSC CHSL 2025</td><td>JPEG</td><td>10–20 KB</td><td>4.0 × 2.0 cm</td><td>Verified from 2025 notice</td></tr>
+<tr><td>SSC CPO 2025</td><td>JPEG/JPG</td><td>10–20 KB</td><td>6.0 × 2.0 cm</td><td>Verified from 2025 notice</td></tr>
+<tr><td>SSC Stenographer 2025</td><td>JPEG/JPG</td><td>10–20 KB</td><td>6.0 × 2.0 cm</td><td>Verified from 2025 notice</td></tr>
+</tbody></table>
+<p><strong>Important:</strong> This is a reference table, not an SSC notification. Check the official SSC notice for the exact examination/year before uploading.</p>
+
+<h2>Power Makers SSC Signature Resizer</h2><p><strong>Power Makers</strong> is the independent project behind this browser-based tool. <a href="https://github.com/POWER-MAKERS/SSC-SIGNATURE-RESIZER-FOR-SSC-MTS-GD-CGL-CHSL-CPO-AND-MANY-MORE.git" target="_blank" rel="noopener noreferrer">View the source on GitHub</a>.</p><h2>SSC Signature Resizer — useful searches</h2>
+<p>This page naturally covers candidate intents such as SSC signature resizer, SSC signature compressor, SSC signature resize online, SSC signature 10 KB, SSC signature 20 KB, SSC signature JPG, SSC signature JPEG, SSC CGL signature size, SSC GD signature size, SSC MTS signature size, SSC CHSL signature size, SSC CPO signature size, SSC Stenographer signature size, SSC signature dimensions, SSC signature 300 DPI, resize signature for SSC form, compress signature for SSC application, signature under 20 KB, signature 10 to 20 KB, SSC signature crop, SSC signature converter, SSC signature file size checker, and SSC application signature requirements.</p>
+<p>These phrases are included as useful topic coverage, not as hidden keyword stuffing or a promise of Google ranking. The page should provide real utility first.</p>
+</section>
+
+<section class="card content" id="faq">
+<h2>Frequently Asked Questions</h2>
+<details class="faq"><summary>Why is the Choose image button not working?</summary><div>This version connects both the visible button and the upload area directly to the same file input and also supports drag-and-drop. It does not depend on a hidden third-party cropper.</div></details>
+<details class="faq"><summary>Does the tool upload my signature to a server?</summary><div>No. Image processing is performed in your browser using JavaScript and Canvas. The selected image is not sent to this website by this page.</div></details>
+<details class="faq"><summary>Can I use PNG as the source?</summary><div>Yes. PNG, WebP and JPEG/JPG can be selected as source files. The generated download is JPEG.</div></details>
+<details class="faq"><summary>Can I crop the signature on a phone?</summary><div>Yes. The crop rectangle uses pointer events, so touch dragging works on supported mobile browsers.</div></details>
+<details class="faq"><summary>Does 10–20 KB mean the image must look physically 10–20 KB?</summary><div>No. KB is the digital file size. Physical dimensions and pixel dimensions are separate requirements.</div></details>
+<details class="faq"><summary>Why can a simple signature be smaller than 10 KB?</summary><div>A very simple image can compress extremely well. JPEG quality cannot always make such an image large enough. This tool can optionally add a JPEG comment segment to meet a minimum byte count without changing the visible pixels.</div></details>
+<details class="faq"><summary>Will this guarantee SSC acceptance?</summary><div>No. The tool can verify the technical settings you enter, but SSC may reject a signature for illegibility, blur, miniature appearance or other notice-specific reasons.</div></details>
+<details class="faq"><summary>Which requirement should I follow if this page and the SSC portal differ?</summary><div>Follow the active SSC notification and application portal. They are the final authority.</div></details>
+</section>
+
+<section class="card content" id="privacy"><h2>Privacy Policy</h2>
+<p><strong>Last updated: 4 October 2026</strong></p>
+<p>SSC Resizer is designed as a client-side image utility. The signature image selected in the tool is processed locally in the browser. This page does not intentionally upload the image to a server.</p>
+<h3>Data collection</h3><p>The site does not ask for an account, signature image upload account, or payment. Hosting, security, analytics, advertising or CDN providers may independently process technical information according to their own policies if you add those services.</p>
+<h3>Advertising</h3><p>If Google AdSense or another advertising service is added later, advertisements may use cookies or similar technologies subject to the advertising provider's policies and the site's consent choices. Do not state that AdSense is active until it is actually installed and approved.</p>
+<h3>Contact</h3><p>For website questions, use the contact information published with the live website/repository. Do not place a private email address in public source code unless you intentionally want it public.</p>
+</section>
+
+<section class="card content" id="terms"><h2>Terms & Disclaimer</h2>
+<p>This website is an independent utility and is not affiliated with, endorsed by, or operated by the Staff Selection Commission (SSC).</p>
+<p>Requirements can change between examinations and years. The user is responsible for checking the active SSC notification and portal before submission. The developer does not guarantee application acceptance, examination eligibility, recruitment results, or uninterrupted website availability.</p>
+<p>You may use the tool for lawful personal or educational purposes. Do not use it to alter documents or signatures fraudulently or to misrepresent identity.</p>
+</section>
+
+<section class="card content" id="adsense"><h2>Advertising & Google AdSense readiness</h2>
+<ul>
+<li>Keep navigation, privacy policy, terms/disclaimer and useful original content accessible.</li>
+<li>Do not click your own advertisements or ask users to click advertisements.</li>
+<li>Do not place ads so close to the upload/download controls that users could mistake ads for tool buttons.</li>
+<li>Do not publish misleading claims such as “SSC approved” unless you have official authorization.</li>
+<li>Do not use hidden keyword blocks, cloaking, or automatically generated low-value pages.</li>
+<li>If ads are enabled, add the required consent/privacy disclosures and follow the current Google publisher policies applicable to your users and region.</li>
+</ul>
+</section>
+
+<footer class="footer"><div class="legal-nav"><a href="#privacy">Privacy</a><a href="#terms">Terms & Disclaimer</a><a href="#adsense">AdSense readiness</a><a href="#requirements">SSC requirements</a></div><div>SSC Resizer • Independent client-side signature preparation tool • Verify the active SSC notice before submission.</div></footer>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+(()=>{
+"use strict";
+const $=id=>document.getElementById(id),input=$("imageInput"),choose=$("chooseBtn"),drop=$("dropZone"),editor=$("editor"),canvas=$("cropCanvas"),ctx=canvas.getContext("2d"),area=$("cropArea"),box=$("cropBox"),img=new Image();
+let url="",lastURL="",nw=0,nh=0,rotation=0,fx=1,fy=1,zoom=1,drag=false,ds=null,cs=null;
+let view={x:0,y:0,w:0,h:0},crop={x:0,y:0,w:0,h:0},selected="SSC CGL 2026";
+function toast(m){let t=$("toast");t.textContent=m;t.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display="none",2500)}
+function cmPx(cm,dpi){return Math.round(cm*dpi/2.54)} function pxCm(px,dpi){return px*2.54/dpi}
+function preset(b){document.querySelectorAll('.preset').forEach(x=>x.classList.remove('active'));b.classList.add('active');selected=b.dataset.name;$("minKB").value=b.dataset.min||10;$("maxKB").value=b.dataset.max||20;$("dpi").value=b.dataset.dpi||300;if(b.dataset.wcm){$("width").value=cmPx(+b.dataset.wcm,+b.dataset.dpi);$("height").value=cmPx(+b.dataset.hcm,+b.dataset.dpi)}$("presetNote").textContent=selected+(b.dataset.wcm?`: ${b.dataset.wcm} × ${b.dataset.hcm} cm • ${b.dataset.min}–${b.dataset.max} KB.`:" — enter the active notice values.");cmInfo()}
+document.querySelectorAll('.preset').forEach(b=>b.onclick=()=>preset(b));
+function cmInfo(){let d=+$('dpi').value||300;$('widthCm').textContent=$('width').value?`≈ ${pxCm(+$('width').value,d).toFixed(2)} cm at ${d} DPI`:'';$('heightCm').textContent=$('height').value?`≈ ${pxCm(+$('height').value,d).toFixed(2)} cm at ${d} DPI`:''}['width','height','dpi'].forEach(id=>$(id).oninput=cmInfo);
+choose.onclick=e=>{e.preventDefault();e.stopPropagation();input.click()};drop.onclick=e=>{if(!e.target.closest('button'))input.click()};['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add('drag')}));['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove('drag')}));drop.ondrop=e=>{let f=e.dataTransfer.files?.[0];if(f)load(f)};input.onchange=()=>{let f=input.files?.[0];if(f)load(f);input.value=''};
+function load(f){if(!/^image\/(jpeg|png|webp)$/.test(f.type)){toast('Please choose JPG, PNG or WebP.');return}if(url)URL.revokeObjectURL(url);url=URL.createObjectURL(f);img.onload=()=>{nw=img.naturalWidth;nh=img.naturalHeight;rotation=0;fx=fy=1;zoom=1;editor.style.display='block';requestAnimationFrame(init);toast('Image loaded successfully.')};img.onerror=()=>toast('The image could not be opened.');img.src=url}
+function init(){let aw=area.clientWidth-20,ah=area.clientHeight-20,scale=Math.min(aw/nw,ah/nh,1);view.w=Math.max(1,Math.round(nw*scale));view.h=Math.max(1,Math.round(nh*scale));view.x=Math.round((area.clientWidth-view.w)/2);view.y=Math.round((area.clientHeight-view.h)/2);canvas.width=view.w;canvas.height=view.h;canvas.style.width=view.w+'px';canvas.style.height=view.h+'px';let ratio=2;crop.w=Math.min(view.w*.88,view.h*ratio*.82);crop.h=crop.w/ratio;if(crop.h>view.h*.88){crop.h=view.h*.88;crop.w=crop.h*ratio}crop.x=view.x+(view.w-crop.w)/2;crop.y=view.y+(view.h-crop.h)/2;draw();render()}
+function draw(){ctx.save();ctx.clearRect(0,0,canvas.width,canvas.height);ctx.translate(canvas.width/2,canvas.height/2);ctx.rotate(rotation*Math.PI/180);ctx.scale(fx*zoom,fy*zoom);let sc=Math.min(canvas.width/nw,canvas.height/nh);ctx.drawImage(img,-nw*sc/2,-nh*sc/2,nw*sc,nh*sc);ctx.restore()}
+function render(){box.style.left=crop.x+'px';box.style.top=crop.y+'px';box.style.width=crop.w+'px';box.style.height=crop.h+'px'}
+function clamp(){crop.x=Math.max(view.x,Math.min(crop.x,view.x+view.w-crop.w));crop.y=Math.max(view.y,Math.min(crop.y,view.y+view.h-crop.h));render()}
+function pos(e){let r=area.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top}}
+box.onpointerdown=e=>{e.preventDefault();box.setPointerCapture(e.pointerId);drag=true;ds=pos(e);cs={x:crop.x,y:crop.y}};box.onpointermove=e=>{if(!drag)return;let p=pos(e);crop.x=cs.x+p.x-ds.x;crop.y=cs.y+p.y-ds.y;clamp()};box.onpointerup=box.onpointercancel=()=>drag=false;
+$('zoomIn').onclick=()=>{zoom=Math.min(3,zoom+.1);draw()};$('zoomOut').onclick=()=>{zoom=Math.max(.5,zoom-.1);draw()};$('rotateLeft').onclick=()=>{rotation=(rotation+270)%360;draw()};$('rotateRight').onclick=()=>{rotation=(rotation+90)%360;draw()};$('flipH').onclick=()=>{fx*=-1;draw()};$('flipV').onclick=()=>{fy*=-1;draw()};$('resetCrop').onclick=()=>{rotation=0;fx=fy=1;zoom=1;init()};
+function cropped(){let r=canvas.getBoundingClientRect(),ar=area.getBoundingClientRect(),x=crop.x-(r.left-ar.left),y=crop.y-(r.top-ar.top),w=crop.w,h=crop.h;let sx=Math.max(0,Math.round(x*canvas.width/r.width)),sy=Math.max(0,Math.round(y*canvas.height/r.height)),sw=Math.min(canvas.width-sx,Math.round(w*canvas.width/r.width)),sh=Math.min(canvas.height-sy,Math.round(h*canvas.height/r.height));let c=document.createElement('canvas');c.width=Math.max(1,sw);c.height=Math.max(1,sh);let c2=c.getContext('2d');c2.fillStyle='#fff';c2.fillRect(0,0,c.width,c.height);c2.drawImage(canvas,sx,sy,sw,sh,0,0,c.width,c.height);return c}
+function blob(c,q){return new Promise(r=>c.toBlob(b=>r(b),'image/jpeg',q))}
+async function pad(b,target){if(b.size>=target)return b;let a=new Uint8Array(await b.arrayBuffer());if(a[0]!==255||a[1]!==216)return b;let need=target-b.size,parts=[];while(need>0){let n=Math.min(need,65533),z=new Uint8Array(n+4),len=n+2;z[0]=255;z[1]=254;z[2]=len>>8;z[3]=len&255;parts.push(z);need-=n}let out=new Uint8Array(a.length+parts.reduce((n,x)=>n+x.length,0)),at=0;out.set(a.slice(0,2),at);at=2;for(let z of parts){out.set(z,at);at+=z.length}out.set(a.slice(2),at);return new Blob([out],{type:'image/jpeg'})}
+async function generate(){if(!nw){toast('Choose an image first.');return}let w=Math.round(+$('width').value),h=Math.round(+$('height').value),min=Math.round(+$('minKB').value*1024),max=Math.round(+$('maxKB').value*1024);if(!w||!h||!min||!max||max<min){toast('Check output and KB values.');return}let c=cropped(),o=document.createElement('canvas');o.width=w;o.height=h;let q=o.getContext('2d');q.fillStyle='#fff';q.fillRect(0,0,w,h);q.drawImage(c,0,0,w,h);let best=null;for(let quality=100;quality>=1;quality--){let b=await blob(o,quality/100);if(b.size<=max){best={b,quality};break}}if(!best)best={b:await blob(o,1),quality:100};if(best.b.size<min&&$('paddingAllowed').value==='yes')best.b=await pad(best.b,min);if(lastURL)URL.revokeObjectURL(lastURL);lastURL=URL.createObjectURL(best.b);$('preview').src=lastURL;$('result').style.display='block';let kb=best.b.size/1024,ok=best.b.size>=min&&best.b.size<=max;$('status').innerHTML=ok?`<span class="ok"><strong>PASS:</strong> ${best.b.size.toLocaleString()} bytes (${kb.toFixed(2)} KB).</span>`:`<span class="bad"><strong>CHECK:</strong> ${best.b.size.toLocaleString()} bytes (${kb.toFixed(2)} KB).</span>`;$('meta').textContent=`Preset: ${selected} • Output: ${w} × ${h} px • JPEG quality: ${best.quality}% • Processed in browser`;$('checklist').innerHTML=[['Format','JPEG',true],['File size',`${kb.toFixed(2)} KB (required ${min/1024}–${max/1024} KB)`,ok],['Dimensions',`${w} × ${h} px`,true],['Privacy','Processed locally',true]].map(x=>`<div class="check ${x[2]?'ok':'bad'}">${x[2]?'✓':'✕'} <strong>${x[0]}:</strong> ${x[1]}</div>`).join('');$('download').href=lastURL;$('download').download='ssc-signature.jpg';toast(ok?'Verified JPG ready.':'JPG generated; check the size.')}
+$('generate').onclick=generate;$('clear').onclick=()=>{if(url)URL.revokeObjectURL(url);url='';img.removeAttribute('src');editor.style.display='none';$('result').style.display='none';if(lastURL)URL.revokeObjectURL(lastURL);lastURL='';input.value=''};$('copyDetails').onclick=async()=>{try{await navigator.clipboard.writeText($('status').innerText+' | '+$('meta').innerText);toast('Details copied.')}catch(e){toast('Copy unavailable.')}};preset(document.querySelector('.preset.active'));
+})();
+</script>
+</body>
+</html>
