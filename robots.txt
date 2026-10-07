@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://power-makers.github.io/SSC-SIGNATURE-RESIZER-FOR-SSC-MTS-GD-CGL-CHSL-CPO-AND-MANY-MORE/sitemap.xml
